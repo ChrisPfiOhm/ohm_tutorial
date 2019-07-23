@@ -67,7 +67,9 @@ sprintf(penname, "%s/%s", argv[1], "set_pen");
     * 2) Lassen Sie die Schildkröte ein Rechteck abfahren.
     *
     */
-  ros::Subscriber pose_sub = n.subscribe("chris/pose", 1, callbackPose);
+  char posename[64]; 
+  sprintf(posename, "%s/%s", argv[1], "pose");
+  ros::Subscriber pose_sub = n.subscribe(posename, 1, callbackPose);
 
 
   /**
@@ -94,9 +96,6 @@ sprintf(penname, "%s/%s", argv[1], "set_pen");
       ros::spinOnce();  
       r.sleep(); 
    }
-
-   turtlesim::Kill kill_srv; 
-   // ...
 
 
   return 0;
