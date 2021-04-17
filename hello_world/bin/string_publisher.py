@@ -9,11 +9,11 @@ def talker():
     # Initialisierung des Publishers
     pub = rospy.Publisher('hello_world_topic', String, queue_size=10)
     # Dauer einer Schleife festlegen
-    rate = rospy.Rate(10) # 10hz
+    rate = rospy.Rate(1) # 10hz
     # Schleife mit Abbruchkriterium
     while not rospy.is_shutdown():
         # Vorbereiten der Nachricht
-        hello_str = "hello world"
+        hello_str = "hello world with changes"
         pub.publish(hello_str)
         # Warten bis Schleifenzeit erreicht ist
         rate.sleep()
